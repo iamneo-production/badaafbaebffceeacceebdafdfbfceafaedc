@@ -1,46 +1,42 @@
-package com.examly.springapp.controller;
+package com.examly.springapp.services;
 import java.util.List;
 
+import com.examly.springapp.dao.Taskdao;
 import com.examly.springapp.entity.Task;
-import com.examly.springapp.services.TaskService;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.stereotype.Service;
 
-@Controller
-public class COntrol {
+@Service
+public class TaskServiceImpl implements TaskService {
     @Autowired
-    private TaskService ts;
-    @GetMapping("/alltasks")
+    private Taskdao td;
     public List<Task> getallTask()
     {
-        return this.ts.getallTask();
+        
+        return td.findAll();
     }
-    @GetMapping("/getTask/{taskid}")
-    public Task getTask(@PathVariable String thd)
+    public Task getTask(long thn)
     {
-        return this.ts.getTask(Long.parseLong(thd));
+        
+        return td.getOne(thn);
     }
-    @PostMapping("/saveTask")
-    public Task addTask(@RequestBody Task task)
-    {
-        return this.ts.addTask(task);
+    @Override
+    public Task addTask(Task t) {
+       return td.save(t);
+        
     }
-    @PutMapping("/changeStatus/{taskStatus}")
-    public Task updateTask(@RequestBody Task t)
-    {
-       return this.ts.updateTask(t);
+    @Override
+    public Task updateTask(Task t) {
+       
+        return td.save(t);
+
     }
-    @DeleteMapping("/deleteTask/{id}")
-    public void deleteTask(@PathVariable String id)
-    {
-        this.ts.deleteTask(Long.parseLong(id));
+    @Override
+    public void deleteTask(long id) {
+        
+        Task entity=td.getOne(id);
+        td.delete(entity);
     }
-    
+
 }
