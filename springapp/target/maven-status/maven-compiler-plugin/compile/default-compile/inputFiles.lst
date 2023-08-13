@@ -1,1 +1,6 @@
-C:\Users\HP\Desktop\Stack\Others\Virtusa\Training Phase\New\TaskManagement\springapp\src\main\java\com\examly\springapp\SpringappApplication.java
+/home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/entity/Task.java
+/home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/dao/Taskdao.java
+/home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/services/TaskServiceImpl.java
+/home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/services/TaskService.java
+/home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/controller/COntrol.java
+/home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/SpringappApplication.java
